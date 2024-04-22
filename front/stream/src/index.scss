@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgb(60, 59, 62);
+}
+.glass {
+  background: rgba(69, 69, 69, 0.19);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.193);
+  backdrop-filter: blur(7.3px);
+  -webkit-backdrop-filter: blur(7.3px);
+}
+.inputField {
+  height: 2rem;
+  padding: 8px;
+  border-radius: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
