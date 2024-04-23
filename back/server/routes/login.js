@@ -1,6 +1,5 @@
-const pg = require("pg");
-
-const { Client } = pg;
+// db/index.js
+const { Client } = require("pg");
 
 const client = new Client({
   host: "localhost",
@@ -9,12 +8,17 @@ const client = new Client({
   user: "postgres",
   password: "Cswajevtg135624",
 });
-const reader = async () => {
-  await client.connect();
 
-  const result = await client.query("SELECT * from users");
-  console.log(result);
-
-  await client.end();
+module.exports = {
+  connect: async () => {
+    await client.connect();
+    console.log("Connected to PostgreSQL database");
+  },
+  query: async (sql, values) => {
+    return await client.query(sql, values);
+  },
+  disconnect: async () => {
+    await client.end();
+    console.log("Disconnected from PostgreSQL database");
+  },
 };
-reader();

@@ -1,9 +1,9 @@
 const express = require("express");
 
-const videos = require("./routes/videos");
-
 const app = express();
 
-app.use("/videos", videos);
+app.use("/videos", (req, res) => {
+  res.send("asdf");
+});
 
 module.exports = app;
