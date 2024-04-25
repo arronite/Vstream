@@ -21,4 +21,7 @@ module.exports = {
   Disconnect: async () => {
     await client.end();
   },
+  Test: () => {
+    console.log("test")
+  },
 };

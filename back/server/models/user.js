@@ -1,11 +1,12 @@
 const db = require("../db/database");
 
 class User {
-  static getAllUsers = async () => {
-    db.Connect();
-    const res = await db.Sql("SELECT * FROM users");
+  static getAllUsers = () => {
+    // db.Connect();
+    // const res = await db.Sql("SELECT * FROM users");
 
-    db.Disconnect();
+    // db.Disconnect();
+    console.log("Dummy")
   };
   static addUser = async () => {
     db.Connect();
@@ -14,7 +15,8 @@ class User {
       `
     );
     db.Disconnect();
-    console.log(res);
+
   };
 }
+
 module.exports = User;

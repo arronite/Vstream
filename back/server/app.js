@@ -1,11 +1,7 @@
 const express = require("express");
-
-const User = require("./models/user");
-User.addUser();
 const app = express();
+const user=require("./routes/userRoutes")
 
-app.use("/videos", (req, res) => {
-  res.send("asdf");
-});
+app.use("/user",user);
 
 module.exports = app;
