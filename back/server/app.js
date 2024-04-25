@@ -1,7 +1,17 @@
 const express = require("express");
 const app = express();
-const user=require("./routes/userRoutes")
+const user = require("./routes/userRoutes");
+var bodyParser = require("body-parser");
+const logger = require("./middleware/logger");
 
-app.use("/user",user);
+app.use([
+  bodyParser.json(),
+  bodyParser.urlencoded(),
+  bodyParser.urlencoded({ extended: true }),
+]);
+
+app.use(logger);
+
+app.use("/user", user);
 
 module.exports = app;

@@ -22,6 +22,6 @@ module.exports = {
     await client.end();
   },
   Test: () => {
-    console.log("test")
+    console.log("test");
   },
 };
