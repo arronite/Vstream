@@ -8,8 +8,8 @@ const MainLayout = () => {
 
   return (
     <div>
-      <div className="glass">
-        <div className="mainContainer  py-5 grid grid-cols-8 gap-4">
+      <div className="glass sticky top-0 z-10">
+        <div className="mainContainer mx-01  py-5 grid grid-cols-8 gap-4">
           {navigationItems.map((parent) => (
             <div key={parent.key} className={`${parent.containerStyle}`}>
               {parent.items.map((item) => (

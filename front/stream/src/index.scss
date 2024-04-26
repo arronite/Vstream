@@ -6,7 +6,7 @@ body {
   background-color: rgb(60, 59, 62);
 }
 .glass {
-  background: rgba(69, 69, 69, 0.19);
+  background: rgba(36, 104, 123, 0.19);
 
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.193);
   backdrop-filter: blur(7.3px);
@@ -20,4 +20,27 @@ body {
 
 input:focus {
   outline: none;
+}
+.carousel-image {
+  height: 40rem;
+}
+.mx-01 {
+  margin-left: 17.5%;
+  margin-right: 17.5%;
+}
+.genreSelect {
+  position: relative;
+  cursor: pointer;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    min-width: 0;
+    height: 2px;
+    background-color: rgb(127, 200, 255);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s;
+  }
+  &:hover::before {
+    min-width: 100px;
+  }
 }
