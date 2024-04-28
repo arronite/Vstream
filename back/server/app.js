@@ -4,11 +4,7 @@ const user = require("./routes/userRoutes");
 var bodyParser = require("body-parser");
 const logger = require("./middleware/logger");
 
-app.use([
-  bodyParser.json(),
-  bodyParser.urlencoded(),
-  bodyParser.urlencoded({ extended: true }),
-]);
+app.use([bodyParser.json(), bodyParser.urlencoded({ extended: true })]);
 
 app.use(logger);
 

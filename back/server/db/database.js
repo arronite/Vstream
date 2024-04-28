@@ -1,27 +1,24 @@
 const pg = require("pg");
 
-const { Client } = pg;
+const { Pool } = pg;
 
-const client = new Client({
+const pool = new Pool({
   host: "localhost",
   port: 5432,
-  database: "postgres",
+  database: "vstreamer",
   user: "postgres",
   password: "Cswajevtg135624",
 });
 
 module.exports = {
   Connect: async () => {
-    await client.connect();
+    await pool.connect();
   },
   Sql: async (query, values) => {
-    const result = await client.query(query, values);
+    const result = await pool.query(query, values);
     return result;
   },
   Disconnect: async () => {
-    await client.end();
-  },
-  Test: () => {
-    console.log("test");
+    await pool.end();
   },
 };
