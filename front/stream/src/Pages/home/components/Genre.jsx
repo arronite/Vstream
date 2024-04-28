@@ -1,4 +1,3 @@
-import React from "react";
 const movieGenres = [
   "Action",
   "Adventure",
@@ -25,8 +24,8 @@ const movieGenres = [
 ];
 export const Genre = () => {
   return (
-    <div className="flex gap-12 flex-col w-1/6 ">
-      <div className="flex w-full  glass px-4 py-5  ">
+    <div className="flex gap-12 flex-col ">
+      <div className="flex   glass px-4 py-5  ">
         <span className="text-3xl font-bold text-cyan-100">GENRE</span>
       </div>
       {movieGenres.map((genre) => (

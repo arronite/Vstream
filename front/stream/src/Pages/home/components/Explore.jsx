@@ -4,7 +4,7 @@ import { Genre } from "./Genre";
 export const Explore = () => {
   return (
     <Container>
-      <div className="flex gap-28">
+      <div className="flex justify-between ">
         <Genre />
         <Content />
       </div>
