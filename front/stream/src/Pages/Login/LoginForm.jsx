@@ -1,16 +1,30 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import axios from "axios";
 export const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
-
-  console.log(watch("example"));
+  const onSubmit = async (data) => {
+    axios
+      .get("http://localhost:5892/user/login", {
+        params: {
+          data,
+        },
+      })
+      .then(function (response) {
+        localStorage.setItem("token", response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        window.location.pathname = "/home";
+      });
+  };
 
   return (
     <form
@@ -22,14 +36,14 @@ export const LoginForm = () => {
         <input
           className="inputField"
           defaultValue="test"
-          {...register("example")}
+          {...register("username")}
         />
       </div>
       <div className="flex flex-col">
         <label className="p-2">asdf</label>
         <input
           className="inputField"
-          {...register("exampleRequired", { required: true })}
+          {...register("password", { required: true })}
         />
       </div>
       <input type="submit" />

@@ -35,17 +35,4 @@ export const navigationItems = [
       },
     ],
   },
-  {
-    key: 3,
-    section: "login",
-    containerStyle: "col-span-2 flex justify-end",
-    ChildrenStyle: "bg-cyan-700 px-4 py-2 rounded-md text-cyan-100 ",
-    items: [
-      {
-        key: 1,
-        content: "Login",
-        url: "/login",
-      },
-    ],
-  },
 ];

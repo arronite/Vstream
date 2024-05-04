@@ -12,17 +12,43 @@ module.exports = {
     res.json(result);
   },
   login: async (req, res) => {
-    const { username, password } = req.query;
-    const dbResponse = await User.getUser(username, password);
-    // console.log(dbPassword);
-    const isCorrect = await bcrypt.compare(password, dbResponse.password);
-    if (isCorrect) {
-      console.log(dbResponse);
-      const { username, email, password, subscribtion } = dbResponse;
-      const token = jwt.sign({ username, email, subscribtion }, password, {
-        expiresIn: "3h",
-      });
-      res.send(token);
+    try {
+      const { username, password } = req.query.data;
+      console.log(req);
+      const dbResponse = await User.getUser(username, password);
+
+      const isCorrect = await bcrypt.compare(password, dbResponse.password);
+      if (isCorrect) {
+        console.log(dbResponse);
+        const { username, email, password, subscribtion } = dbResponse;
+        jwt.sign(
+          { subscribtion },
+          "privateKey",
+          { expiresIn: "5m" },
+          (err, token) => {
+            if (err) {
+              console.log(err);
+            }
+            res.send(token);
+          }
+        );
+      }
+    } catch (error) {
+      console.log(error);
     }
+  },
+  data: async (req, res) => {
+    jwt.verify(req.token, "privateKey", (err, authorizedData) => {
+      if (err) {
+        console.log(err);
+        res.sendStatus(403);
+      } else {
+        res.json({
+          message: "Successful log in",
+          authorizedData,
+        });
+        console.log("SUCCESS: Connected to protected route");
+      }
+    });
   },
 };
