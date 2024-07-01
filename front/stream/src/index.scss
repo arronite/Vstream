@@ -3,10 +3,21 @@
 @tailwind utilities;
 
 body {
-  background-color: rgb(60, 59, 62);
+  font-family: "Ubuntu Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 687;
+  font-style: normal;
+
+  background: rgb(0, 18, 49);
+  background: linear-gradient(
+    -45deg,
+    rgb(18, 18, 31) 0%,
+
+    rgb(7, 21, 32) 100%
+  );
 }
 .glass {
-  background: rgba(17, 102, 181, 0.44);
+  background: rgba(10, 91, 198, 0.24);
 
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.193);
   backdrop-filter: blur(7.3px);
@@ -59,4 +70,47 @@ input:focus {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+.swiper-pagination-bullet-active {
+  background-color: aqua;
+}
+.aaa {
+  opacity: 0;
+}
+.vds-button {
+  /* CSS variables available for customization (defaults shown). */
+  --media-button-color: var(--media-controls-color, #c2f4ff) !important;
+
+  --media-button-hover-bg: rgba(18, 171, 232, 0.2) !important;
+
+  --media-button-touch-hover-bg: rgba(25, 209, 233, 0.2) !important;
+}
+.slight-gradient {
+  background: rgb(0, 18, 49);
+  background: linear-gradient(
+    135deg,
+    rgb(2, 14, 35) 0%,
+    rgba(32, 54, 93, 1) 90%,
+    rgb(28, 53, 101) 100%
+  );
+}
+.inputField {
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(25, 209, 233, 0.2) !important;
+}
+input {
+  background: none;
+}
+.controls progress {
+  display: block;
+  width: 100%;
+  height: 81%;
+  margin-top: 0.125rem;
+  border: none;
+  color: #0095dd;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }

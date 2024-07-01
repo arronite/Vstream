@@ -14,15 +14,15 @@ module.exports = {
   login: async (req, res) => {
     try {
       const { username, password } = req.query.data;
-      console.log(req);
+
       const dbResponse = await User.getUser(username, password);
 
-      const isCorrect = await bcrypt.compare(password, dbResponse.password);
+      const isCorrect = await bcrypt.compare(password, dbResponse?.password);
       if (isCorrect) {
         console.log(dbResponse);
         const { username, email, password, subscribtion } = dbResponse;
         jwt.sign(
-          { subscribtion },
+          { subscribtion, username },
           "privateKey",
           { expiresIn: "5m" },
           (err, token) => {

@@ -7,7 +7,7 @@ export const navigationItems = [
     items: [
       {
         key: 1,
-        content: "Logo",
+
         url: "/home",
       },
     ],
@@ -30,8 +30,8 @@ export const navigationItems = [
       },
       {
         key: 3,
-        content: "Pricing",
-        url: "/pricing",
+        content: "Genre",
+        url: "/Genres",
       },
     ],
   },

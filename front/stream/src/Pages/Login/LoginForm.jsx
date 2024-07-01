@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 export const LoginForm = () => {
   const {
     register,
@@ -17,6 +18,7 @@ export const LoginForm = () => {
       })
       .then(function (response) {
         localStorage.setItem("token", response.data);
+        console.log("set");
       })
       .catch(function (error) {
         console.log(error);
@@ -28,29 +30,46 @@ export const LoginForm = () => {
 
   return (
     <form
-      className="h-full flex w-full flex-col gap-5"
+      className="flex flex-col p-6 space-y-4 text-slate-50 rounded-lg w-full max-w-md mx-auto mt-10"
       onSubmit={handleSubmit(onSubmit)}
     >
+      <h2 className="text-2xl font-bold text-center">Login</h2>
+
       <div className="flex flex-col">
-        <label className="p-2 text">asdf</label>
+        <label className="mb-2 font-medium ">Username or Email</label>
         <input
-          className="inputField"
-          defaultValue="test"
-          {...register("username")}
+          className="p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          {...register("username", {
+            required: "Username or email is required",
+          })}
         />
+        {errors.username && (
+          <span className="mt-1 text-red-500">{errors.username.message}</span>
+        )}
       </div>
+
       <div className="flex flex-col">
-        <label className="p-2">asdf</label>
+        <label className="mb-2 font-medium ">Password</label>
         <input
-          className="inputField"
-          {...register("password", { required: true })}
+          className="p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          type="password"
+          {...register("password", { required: "Password is required" })}
         />
+        {errors.password && (
+          <span className="mt-1 text-red-500">{errors.password.message}</span>
+        )}
       </div>
-      <input type="submit" />
-      {errors.exampleRequired && <span>This field is required</span>}
-      <div className="flex justify-center items-center w-full">
-        <Link to={"/signup"}>
-          <span>Signup</span>
+
+      <button
+        type="submit"
+        className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none"
+      >
+        Log In
+      </button>
+
+      <div className="flex justify-center items-center w-full mt-4">
+        <Link to="/signup" className="text-blue-500 hover:underline">
+          Signup
         </Link>
       </div>
     </form>

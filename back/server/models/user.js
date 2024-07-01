@@ -1,4 +1,4 @@
-const { Connect, Sql, Disconnect } = require("../db/database");
+const { Sql } = require("../db/database");
 const bcrypt = require("bcrypt");
 
 class User {

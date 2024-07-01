@@ -8,6 +8,7 @@ const {
 } = require("../controller/authenticationController");
 
 router.get("/login", login);
+
 router.post("/signUp", signUp);
 router.get("/data", checkToken, data);
 

@@ -1,3 +1,7 @@
-export const Container = ({ children }) => {
-  return <div className="mx-01 my-16">{children}</div>;
+export const Container = ({ children, gradient }) => {
+  return (
+    <div className={` mx-01 my-16 px ${gradient ? "slight-gradient" : ""}`}>
+      {children}
+    </div>
+  );
 };

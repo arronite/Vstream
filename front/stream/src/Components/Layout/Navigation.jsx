@@ -40,7 +40,12 @@ const Navigation = () => {
       items: [
         {
           key: 1,
-          content: "Logo",
+          content: (
+            <img
+              src="/play.png"
+              style={{ height: "40px", width: "40px" }}
+            ></img>
+          ),
           url: "/home",
         },
       ],
@@ -63,8 +68,8 @@ const Navigation = () => {
         },
         {
           key: 3,
-          content: "Pricing",
-          url: "/pricing",
+          content: "Genre",
+          url: "/genreSelection",
         },
       ],
     },
@@ -72,7 +77,7 @@ const Navigation = () => {
   ];
 
   return (
-    <div className="glass sticky top-0 z-10">
+    <div className="glass sticky top-0 z-50">
       <div className="mainContainer mx-01  py-5 grid grid-cols-8 gap-4">
         {navigationItems.map((parent) => (
           <div key={parent.key} className={`${parent.containerStyle}`}>
